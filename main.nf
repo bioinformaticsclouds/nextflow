@@ -9,7 +9,9 @@ spectra = file(params.spectra)
 
 process indexPeptides {  
     
-    container 'omicsdi/crux:latest'   
+    //container 'omicsdi/crux:latest'   
+    container 'bc/crux:latest'
+
     publishDir "$baseDir/data/" 
     
     input:
@@ -29,7 +31,7 @@ process indexPeptides {
 
 process postProcess {    
     
-    container 'omicsdi/crux:latest'
+    container 'bc/crux:latest'
     input:
     file 'search.target.txt' from searchResults        
     file 'search.decoy.txt' from decoyResults
